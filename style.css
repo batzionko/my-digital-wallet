@@ -1,7 +1,7 @@
 /* עיצוב כללי וגופנים חדשים */
 body {
     font-family: 'Rubik', system-ui, -apple-system, sans-serif;
-    background-color: #f0f4f8; /* צבע רקע רך ונעים יותר */
+    background-color: #f0f4f8; 
     color: #2d3748;
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@ body {
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08); /* צל רך מסביב לאפליקציה */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
 }
 
 /* כותרת שמחה וצבעונית */
@@ -70,7 +70,6 @@ header p {
     gap: 12px;
 }
 
-/* שדות קלט מודרניים ועגולים */
 #benefitForm input, #benefitForm select, #benefitForm textarea {
     width: 100%;
     padding: 14px;
@@ -163,7 +162,7 @@ header p {
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
 }
 
-/* כרטיסיות התוצאות - ריחוף ורכות */
+/* כרטיסיות התוצאות */
 .results-section {
     margin-top: 25px;
     padding-bottom: 30px;
@@ -217,7 +216,6 @@ header p {
     font-weight: 500;
 }
 
-/* צבעים לפי קטגוריות */
 .result-card.giftcard {
     border-right: 6px solid #10b981;
 }

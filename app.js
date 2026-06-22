@@ -132,7 +132,7 @@ window.editBenefit = function(id) {
 
     editingId = id;
     submitBtn.textContent = 'עדכון פרטים';
-    submitBtn.style.background = 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)'; // צבע כתום לעדכון
+    submitBtn.style.background = 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)'; 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
