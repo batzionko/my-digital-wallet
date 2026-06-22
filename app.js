@@ -1,8 +1,6 @@
-// טעינת הנתונים מהזיכרון
 let myBenefits = JSON.parse(localStorage.getItem('myBenefits')) || [];
 let editingId = null; 
 
-// מילון תרגום רשתות
 const storeDictionary = {
     "zara": "זארה", "זארה": "zara",
     "castro": "קסטרו", "קסטרו": "castro",
@@ -26,7 +24,6 @@ const storeDictionary = {
     "ksp": "קיי אס פי", "קיי אס פי": "ksp"
 };
 
-// תפיסת האלמנטים
 const benefitForm = document.getElementById('benefitForm');
 const benefitNameInput = document.getElementById('benefitNameInput');
 const storesInput = document.getElementById('storesInput');
@@ -38,29 +35,26 @@ const submitBtn = document.getElementById('submitBtn');
 
 const searchInput = document.getElementById('searchInput');
 const resultsContainer = document.getElementById('resultsContainer');
-const alertsContainer = document.getElementById('alertsContainer'); // אזור ההתראות החדש
+const alertsContainer = document.getElementById('alertsContainer'); 
 
-// פונקציה לבדיקת תאריכי תפוגה (הפיצ'ר החדש!)
 function checkExpirations() {
-    alertsContainer.innerHTML = ''; // מנקה התראות קודמות
+    alertsContainer.innerHTML = ''; 
     const today = new Date();
     let alertsHtml = '';
 
     myBenefits.forEach(item => {
         if (item.expiry) {
-            // הופך את התאריך (למשל 31/12/2026) לפורמט שהמחשב מבין
             const parts = item.expiry.split(/[-/.]/);
             if (parts.length === 3) {
                 let day = parseInt(parts[0], 10);
-                let month = parseInt(parts[1], 10) - 1; // המחשב מתחיל לספור חודשים מ-0
+                let month = parseInt(parts[1], 10) - 1; 
                 let year = parseInt(parts[2], 10);
-                if (year < 100) year += 2000; // אם בטעות נכתב 26 במקום 2026
+                if (year < 100) year += 2000; 
 
                 const expDate = new Date(year, month, day);
                 const diffTime = expDate - today;
-                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // חישוב הימים שנותרו
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
 
-                // יצירת ההתראה בהתאם לזמן שנותר
                 if (diffDays < 0) {
                     alertsHtml += `<div class="alert-box expired">⚠️ פג תוקף! הכרטיס "${item.name || item.store}" פג לפני ${Math.abs(diffDays)} ימים.</div>`;
                 } else if (diffDays <= 30) {
@@ -73,7 +67,6 @@ function checkExpirations() {
     alertsContainer.innerHTML = alertsHtml;
 }
 
-// שמירה או עדכון הטבה
 benefitForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -93,7 +86,7 @@ benefitForm.addEventListener('submit', (e) => {
         }
         editingId = null;
         submitBtn.textContent = 'שמירה בארנק';
-        submitBtn.style.backgroundColor = '#2ecc71';
+        submitBtn.style.background = 'linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%)';
         alert('ההטבה עודכנה בהצלחה!');
     } else {
         const newBenefit = {
@@ -113,12 +106,10 @@ benefitForm.addEventListener('submit', (e) => {
     localStorage.setItem('myBenefits', JSON.stringify(myBenefits));
     benefitForm.reset();
     
-    // רענון המסך וההתראות
     searchInput.dispatchEvent(new Event('input'));
     checkExpirations();
 });
 
-// פונקציות מחיקה ועריכה
 window.deleteBenefit = function(id) {
     if (confirm('בטוחה שאת רוצה למחוק את ההטבה הזו מהארנק?')) {
         myBenefits = myBenefits.filter(item => item.id !== id);
@@ -141,11 +132,10 @@ window.editBenefit = function(id) {
 
     editingId = id;
     submitBtn.textContent = 'עדכון פרטים';
-    submitBtn.style.backgroundColor = '#f39c12';
+    submitBtn.style.background = 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)'; // צבע כתום לעדכון
     window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
-// הצגת התוצאות
 function displayResults(results) {
     resultsContainer.innerHTML = '';
 
@@ -156,12 +146,12 @@ function displayResults(results) {
 
     results.forEach(item => {
         const cardTitle = item.name || item.store || 'ללא שם';
-        const cardStores = item.stores ? `<p class="details"><strong>תקף ברשתות:</strong> ${item.stores}</p>` : '';
+        const cardStores = item.stores ? `<p class="details"><strong>🛍️ תקף ברשתות:</strong> ${item.stores}</p>` : '';
         
         let usageHtml = '';
         if (item.usage === 'online') usageHtml = '<span class="usage-badge">🌐 אונליין בלבד</span>';
         else if (item.usage === 'instore') usageHtml = '<span class="usage-badge">🏬 בסניפים בלבד</span>';
-        else if (item.usage === 'both') usageHtml = '<span class="usage-badge">🛍️ חנות ואונליין</span>';
+        else if (item.usage === 'both') usageHtml = '<span class="usage-badge">🛒 חנות ואונליין</span>';
 
         const card = document.createElement('div');
         card.className = `result-card ${item.category}`;
@@ -173,7 +163,7 @@ function displayResults(results) {
             </div>
             ${usageHtml}
             ${cardStores}
-            <p class="details">${item.details}</p>
+            <p class="details"><strong>💎 פרטים:</strong> ${item.details}</p>
             ${item.expiry ? `<p class="expiry">📅 תוקף: ${item.expiry}</p>` : ''}
             
             <div class="card-actions">
@@ -219,5 +209,4 @@ searchInput.addEventListener('input', (e) => {
     displayResults(filtered);
 });
 
-// הפעלת בדיקת התפוגה ברגע שהאפליקציה עולה (כדי שיופיעו מיד התראות אם צריך)
 checkExpirations();

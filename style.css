@@ -1,8 +1,8 @@
-/* עיצוב כללי וגופנים */
+/* עיצוב כללי וגופנים חדשים */
 body {
-    font-family: system-ui, -apple-system, sans-serif;
-    background-color: #f4f7f6;
-    color: #333;
+    font-family: 'Rubik', system-ui, -apple-system, sans-serif;
+    background-color: #f0f4f8; /* צבע רקע רך ונעים יותר */
+    color: #2d3748;
     margin: 0;
     padding: 0;
     display: flex;
@@ -16,237 +16,285 @@ body {
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
-    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08); /* צל רך מסביב לאפליקציה */
 }
 
+/* כותרת שמחה וצבעונית */
 header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
     text-align: center;
-    margin-bottom: 30px;
+    padding: 25px 20px;
+    border-radius: 24px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.2);
 }
 
 header h1 {
-    font-size: 24px;
-    color: #2c3e50;
-    margin-bottom: 5px;
+    font-size: 26px;
+    margin: 0 0 8px 0;
+    font-weight: 700;
 }
 
 header p {
     font-size: 14px;
-    color: #7f8c8d;
-    margin-top: 0;
+    color: #e2e8f0;
+    margin: 0;
+    font-weight: 400;
 }
 
+/* אזור הוספת ההטבות */
 .add-benefit-section {
-    background: #fdfdfd;
-    border: 1px dashed #cbd5e1;
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 20px;
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 25px;
+    transition: border-color 0.3s;
+}
+
+.add-benefit-section:hover {
+    border-color: #94a3b8;
 }
 
 .add-benefit-section h3 {
     margin-top: 0;
-    margin-bottom: 12px;
-    font-size: 16px;
-    color: #34495e;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #334155;
 }
 
 #benefitForm {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
+/* שדות קלט מודרניים ועגולים */
 #benefitForm input, #benefitForm select, #benefitForm textarea {
     width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
+    padding: 14px;
+    font-size: 15px;
+    border: 2px solid transparent;
+    border-radius: 14px;
     box-sizing: border-box;
-    background-color: #fff;
+    background-color: #ffffff;
     font-family: inherit;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+#benefitForm input:focus, #benefitForm select:focus, #benefitForm textarea:focus {
+    border-color: #667eea;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
 }
 
 #benefitForm textarea {
     resize: vertical;
 }
 
+/* כפתור שמירה בולט וכיפי */
 #benefitForm button {
-    background-color: #2ecc71;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
     color: white;
     border: none;
-    padding: 12px;
-    font-size: 15px;
+    padding: 15px;
+    font-size: 16px;
     font-weight: bold;
-    border-radius: 8px;
+    border-radius: 14px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    margin-top: 5px;
 }
 
 #benefitForm button:hover {
-    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
 }
 
-/* --- עיצוב אזור ההתראות (חדש!) --- */
+/* התראות תוקף */
 .alerts-section {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .alert-box {
-    padding: 12px 15px;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    padding: 14px 18px;
+    border-radius: 16px;
+    margin-bottom: 12px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 8px;
-    animation: fadeIn 0.3s ease-in-out;
+    gap: 10px;
+    animation: fadeIn 0.4s ease-in-out;
 }
 
 .alert-box.expired {
-    background-color: #fdeaea;
-    color: #e74c3c;
-    border: 1px solid #fad4d4;
+    background-color: #fef2f2;
+    color: #ef4444;
+    border: 1px solid #fca5a5;
 }
 
 .alert-box.expiring {
-    background-color: #fff4e5;
-    color: #d35400;
-    border: 1px solid #ffe2b2;
+    background-color: #fffbeb;
+    color: #d97706;
+    border: 1px solid #fcd34d;
 }
 
-hr {
-    border: 0;
-    height: 1px;
-    background: #e2e8f0;
-    margin: 25px 0;
-}
-
+/* שורת חיפוש ענקית וידידותית */
 .search-section input {
     width: 100%;
-    padding: 15px;
+    padding: 18px;
     font-size: 16px;
-    border: 2px solid #e0e6ed;
-    border-radius: 12px;
+    font-weight: 500;
+    border: none;
+    background-color: #f1f5f9;
+    border-radius: 16px;
     box-sizing: border-box;
     outline: none;
-    transition: border-color 0.3s;
+    transition: all 0.3s;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
 }
 
 .search-section input:focus {
-    border-color: #3498db;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
 }
 
+/* כרטיסיות התוצאות - ריחוף ורכות */
 .results-section {
     margin-top: 25px;
+    padding-bottom: 30px;
 }
 
 .result-card {
-    background: #fff;
-    border: 1px solid #eef2f5;
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-    animation: fadeIn 0.3s ease-in-out;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.result-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .card-header h3 {
     margin: 0;
-    font-size: 18px;
-    color: #2c3e50;
+    font-size: 20px;
+    color: #1e293b;
+    font-weight: 700;
 }
 
 .badge {
-    font-size: 11px;
-    padding: 4px 8px;
+    font-size: 12px;
+    padding: 6px 12px;
     border-radius: 20px;
     font-weight: bold;
-    background-color: #f0f3f5;
-    color: #7f8c8d;
 }
 
 .usage-badge {
     display: inline-block;
-    font-size: 11px;
-    background: #e8f4f8;
-    color: #2980b9;
-    padding: 4px 8px;
-    border-radius: 6px;
-    margin-bottom: 8px;
-    font-weight: bold;
+    font-size: 12px;
+    background: #f1f5f9;
+    color: #475569;
+    padding: 6px 12px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    font-weight: 500;
 }
 
+/* צבעים לפי קטגוריות */
 .result-card.giftcard {
-    border-right: 5px solid #2ecc71;
+    border-right: 6px solid #10b981;
+}
+.result-card.giftcard .badge {
+    background-color: #d1fae5;
+    color: #047857;
 }
 
 .result-card.club {
-    border-right: 5px solid #3498db;
+    border-right: 6px solid #3b82f6;
+}
+.result-card.club .badge {
+    background-color: #dbeafe;
+    color: #1d4ed8;
 }
 
 .details {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #555;
+    margin: 8px 0;
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.5;
 }
 
 .expiry {
-    margin: 5px 0 0 0;
-    font-size: 12px;
-    color: #e74c3c;
-    font-weight: 500;
+    margin: 10px 0 0 0;
+    font-size: 13px;
+    color: #ef4444;
+    font-weight: 600;
+    background: #fef2f2;
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 8px;
 }
 
 .no-results {
     text-align: center;
-    color: #95a5a6;
-    font-size: 14px;
-    margin-top: 20px;
+    color: #94a3b8;
+    font-size: 16px;
+    margin-top: 30px;
+    font-weight: 500;
 }
 
+/* כפתורי עריכה קטנים ומתוקים */
 .card-actions {
     display: flex;
-    gap: 10px;
-    margin-top: 15px;
-    border-top: 1px solid #f0f3f5;
-    padding-top: 10px;
+    gap: 12px;
+    margin-top: 18px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 15px;
 }
 
 .action-btn {
-    background: none;
+    background: #f8fafc;
     border: none;
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
-    color: #7f8c8d;
+    color: #64748b;
     display: flex;
     align-items: center;
-    gap: 5px;
-    padding: 5px 8px;
-    border-radius: 6px;
-    transition: background 0.2s, color 0.2s;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: all 0.2s;
 }
 
 .action-btn:hover {
-    background: #f4f7f6;
-    color: #2c3e50;
+    background: #e2e8f0;
+    color: #1e293b;
 }
 
 .action-btn.delete:hover {
-    color: #e74c3c;
-    background: #fdeaea;
+    color: #ef4444;
+    background: #fef2f2;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
