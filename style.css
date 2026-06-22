@@ -1,0 +1,252 @@
+/* עיצוב כללי וגופנים */
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    background-color: #ffffff;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-top: 0;
+}
+
+.add-benefit-section {
+    background: #fdfdfd;
+    border: 1px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.add-benefit-section h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #34495e;
+}
+
+#benefitForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#benefitForm input, #benefitForm select, #benefitForm textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-family: inherit;
+}
+
+#benefitForm textarea {
+    resize: vertical;
+}
+
+#benefitForm button {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#benefitForm button:hover {
+    background-color: #27ae60;
+}
+
+/* --- עיצוב אזור ההתראות (חדש!) --- */
+.alerts-section {
+    margin-bottom: 20px;
+}
+
+.alert-box {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.alert-box.expired {
+    background-color: #fdeaea;
+    color: #e74c3c;
+    border: 1px solid #fad4d4;
+}
+
+.alert-box.expiring {
+    background-color: #fff4e5;
+    color: #d35400;
+    border: 1px solid #ffe2b2;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 25px 0;
+}
+
+.search-section input {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #e0e6ed;
+    border-radius: 12px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-section input:focus {
+    border-color: #3498db;
+}
+
+.results-section {
+    margin-top: 25px;
+}
+
+.result-card {
+    background: #fff;
+    border: 1px solid #eef2f5;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.badge {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: #f0f3f5;
+    color: #7f8c8d;
+}
+
+.usage-badge {
+    display: inline-block;
+    font-size: 11px;
+    background: #e8f4f8;
+    color: #2980b9;
+    padding: 4px 8px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.result-card.giftcard {
+    border-right: 5px solid #2ecc71;
+}
+
+.result-card.club {
+    border-right: 5px solid #3498db;
+}
+
+.details {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.expiry {
+    margin: 5px 0 0 0;
+    font-size: 12px;
+    color: #e74c3c;
+    font-weight: 500;
+}
+
+.no-results {
+    text-align: center;
+    color: #95a5a6;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    border-top: 1px solid #f0f3f5;
+    padding-top: 10px;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    color: #7f8c8d;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 8px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.action-btn:hover {
+    background: #f4f7f6;
+    color: #2c3e50;
+}
+
+.action-btn.delete:hover {
+    color: #e74c3c;
+    background: #fdeaea;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

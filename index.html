@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הטבות וגיפטקארדים שלי</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <header>
+            <h1>הארנק הדיגיטלי שלי</h1>
+            <p>בדקי היכן יש לך כסף צבור או הטבות מועדון</p>
+        </header>
+
+        <main>
+            <section class="add-benefit-section">
+                <h3>הוספת / עדכון גיפטקארד</h3>
+                <form id="benefitForm">
+                    <input type="text" id="benefitNameInput" placeholder="שם הכרטיס או ההטבה (למשל: שובר סוויש)" required>
+                    
+                    <textarea id="storesInput" rows="2" placeholder="באילו רשתות זה תקף? (למשל: רנואר, קסטרו, פוקס...)" required></textarea>
+                    
+                    <select id="typeInput" required>
+                        <option value="" disabled selected>סוג ההטבה</option>
+                        <option value="giftcard">גיפטקארד / כרטיס נטען</option>
+                        <option value="club">מועדון לקוחות / ארגון</option>
+                    </select>
+
+                    <select id="usageInput" required>
+                        <option value="" disabled selected>איפה ניתן לממש?</option>
+                        <option value="both">גם בחנויות וגם באונליין</option>
+                        <option value="online">באונליין בלבד</option>
+                        <option value="instore">בסניפים פיזיים בלבד</option>
+                    </select>
+
+                    <input type="text" id="detailsInput" placeholder="פרטים (למשל: יתרה 200 ש״ח, או 10% הנחה)" required>
+                    <input type="text" id="expiryInput" placeholder="תאריך תפוגה (חובה בפורמט: 31/12/2026)">
+                    
+                    <button type="submit" id="submitBtn">שמירה בארנק</button>
+                </form>
+            </section>
+
+            <section id="alertsContainer" class="alerts-section"></section>
+
+            <hr>
+
+            <section class="search-section">
+                <h3>חיפוש מהיר</h3>
+                <input type="text" id="searchInput" placeholder="חפשי חנות (תומך גם באנגלית)...">
+            </section>
+
+            <section id="resultsContainer" class="results-section"></section>
+        </main>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
